@@ -14,9 +14,10 @@ namespace BasicAPI.Controllers
         // The name of the method "SayHello" is to be clear to 
         // *me* the programmer. It doesn't tell ASP anything.
         [HttpGet]
-        public string SayHello()
+        public string SayHello(string who)
         {
-            return $"Hello, World. {DateTime.Now}";
+            string whoOrWorld = (who == null) ? "World" : who;
+            return $"Hello, {whoOrWorld}. It is currently {DateTime.Now}";
         }
     }
 }
